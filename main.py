@@ -56,7 +56,7 @@ def menu(user_info):
 3 - Add alarm (with time)
 4 - Delete event (by index)
 5 - Clear all events
-6 - See time untill event (by index)
+6 - See time until event (by index)
 7 - Clear console
 8 - Change to {'bright' if dark_mode else 'dark'} mode (visible in gui)
 9 - Add/Change user's info
