@@ -1,0 +1,280 @@
+/* Stylesheet for calendar widget made by ingwant on github */
+
+/* Style for header area  ####################################################*/
+
+QCalendarWidget QWidget {
+   alternate-background-color: #B8E2FF;
+}
+
+/* style for top navigation area ###############################################*/ 
+
+#qt_calendar_navigationbar {
+   background-color: #fff;
+  border: 2px solid  #B8E2FF;
+  border-bottom: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* style for month change buttons ############################################ */
+
+#qt_calendar_prevmonth, 
+#qt_calendar_nextmonth {
+  /* border delete */
+   border: none;  
+   /* delete default icons */
+  qproperty-icon: none; 
+  
+   min-width: 13px;
+   max-width: 13px;
+   min-height: 13px;
+   max-height: 13px;
+
+   border-radius: 5px; 
+  /* set background transparent */
+   background-color: transparent; 
+  padding: 5px;
+}
+
+/* style for pre month button ############################################ */
+
+#qt_calendar_prevmonth {
+  /* set text for button */
+  /*qproperty-text: &quot;&gt;&quot;;*/
+  margin-left:5px;
+  image: url(resc/arrow-119-48.ico);
+}
+
+/* style for next month button ########################################### */
+#qt_calendar_nextmonth {
+  margin-right:5px;
+  image: url(resc/arrow-19-48.ico);
+   /* qproperty-text: &quot;&gt;&quot;; */
+}
+#qt_calendar_prevmonth:hover, 
+#qt_calendar_nextmonth:hover {
+   background-color: #55aaff;
+}
+
+#qt_calendar_prevmonth:pressed, 
+#qt_calendar_nextmonth:pressed {
+   background-color: rgba(235, 235, 235, 100);
+}
+
+
+/* Style for month and yeat buttons #################################### */
+
+#qt_calendar_yearbutton {
+   color: #000;
+  margin:5px;
+   border-radius: 5px;
+  font-size: 13px;
+  padding:0px 10px;
+}
+
+#qt_calendar_monthbutton {
+  width: 110px;
+   color: #000;
+  font-size: 13px;
+  margin:5px 0px;
+   border-radius: 5px;
+  padding:0px 2px;
+}
+
+#qt_calendar_yearbutton:hover, 
+#qt_calendar_monthbutton:hover {
+   background-color: #55aaff;
+}
+
+#qt_calendar_yearbutton:pressed, 
+#qt_calendar_monthbutton:pressed {
+   background-color: rgba(235, 235, 235, 100);
+}
+
+/* Style for year input lineEdit ######################################*/
+
+#qt_calendar_yearedit {
+   min-width: 53px;
+   color: #000;
+   background: transparent;
+  font-size: 13px;
+}
+
+/* Style for year change buttons ######################################*/
+
+#qt_calendar_yearedit::up-button { 
+  image: url(resc/arrow-151-48.ico);
+   subcontrol-position: right;
+}
+
+#qt_calendar_yearedit::down-button { 
+  image: url(resc/arrow-213-48.ico);
+   subcontrol-position: left; 
+}
+
+#qt_calendar_yearedit::down-button, 
+#qt_calendar_yearedit::up-button {
+  width:10px;
+  padding: 0px 5px;
+  border-radius:3px;
+}
+
+#qt_calendar_yearedit::down-button:hover, 
+#qt_calendar_yearedit::up-button:hover {
+  background-color: #55aaff;
+}
+
+/* Style for month select menu ##################################### */
+
+#calendarWidget QToolButton QMenu {
+    background-color: white;
+
+}
+#calendarWidget QToolButton QMenu::item {
+  /*padding: 10px;*/
+}
+#calendarWidget QToolButton QMenu::item:selected:enabled {
+   background-color: #55aaff;
+}
+
+#calendarWidget QToolButton::menu-indicator {
+  /* Remove toolButton arrow */
+     /*image: none; */
+  nosubcontrol-origin: margin;
+  subcontrol-position: right center;
+  margin-top: 10px;
+  width:20px;
+}
+
+/* Style for calendar table ########################################## */
+#qt_calendar_calendarview {
+  /* Remove the selected dashed box */
+   outline: 0px;
+
+  border: 2px solid  #B8E2FF;
+  border-top: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#qt_calendar_calendarview::item:hover {
+  border-radius:5px;
+  background-color:#aaffff;
+}
+
+#qt_calendar_calendarview::item:selected {
+   background-color: #55aa7f; 
+  border-radius:5px;
+}
+
+
+
+#comboBox {
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	padding-left: 10px;
+}
+
+#comboBox::drop-down {
+    border: 0px;
+}
+
+#comboBox::down-arrow {
+    image: url(resc/arrow-204-32.ico);
+    width: 12px;
+    height: 12px;
+	margin-right:15px;
+}
+
+#comboBox:on {
+ 	border: 4px solid #c2dbfe;
+ }
+
+QComboBox QListView {
+	font-size: 12px;
+	border:1px solid rgba(0,0,0,10%);
+	padding:5px;
+	background-color: #fff;
+	outline: 0px;
+}
+
+QComboBox QListView::item{
+	padding-left:10px;
+	background-color:#FFFFFF;
+}
+QComboBox QListView::item:hover{
+   background-color:#1e90ff;
+}
+QComboBox QListView::item:selected{
+   background-color:#1e90ff;
+}
+
+
+
+
+QGroupBox#options_group QPushButton{
+  color: #000000;
+  background-color: #cecece;
+  border-radius: 2px;
+}
+QGroupBox#options_group QPushButton:hover{
+  background-color: #959595;
+}
+QGroupBox#options_group QPushButton:pressed{
+  border: 4px solid #6a6a6a;
+}
+
+QSpinBox, QDateTimeEdit {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #ffffff;
+  selection-background-color: #3465a4;
+  selection-color: #ffffff;
+}
+
+QSpinBox::up-button, QSpinBox::down-button, QDateTimeEdit::up-button, QDateTimeEdit::down-button {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+QSpinBox::up-arrow, QDateTimeEdit::up-arrow {
+  image: url(resc/arrow-151-48.ico);
+  width: 12px;
+  height: 12px;
+}
+
+QSpinBox::down-arrow, QDateTimeEdit::down-arrow{
+  image: url(resc/arrow-213-48.ico);
+  width: 12px;
+  height: 12px;
+}
+
+
+QSpinBox::up-arrow:hover, QSpinBox::down-arrow:hover, QDateTimeEdit::up-arrow:hover, QDateTimeEdit::down-arrow:hover {
+  background-color: #e0e0e0;
+}
+
+QSpinBox::up-button:pressed, QSpinBox::down-button:pressed, QDateTimeEdit::up-button:pressed, QDateTimeEdit::down-button:pressed {
+  background-color: #d1d1d1;
+}
+
+QTextEdit {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 3px;
+  background-color: #ffffff;
+  font-size: 12px;
+}
+
+QTextEdit:focus {
+  border: 2px solid #4e73df;
+}
+
+QTextEdit::placeholder {
+  color: #a8a8a8;
+}
+
+QTextEdit:hover {
+  border: 1px solid #a8a8a8;
+}

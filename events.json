@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Independence Day in Poland",
+        "date": "2023-12-07",
+        "description": "Celebrating Poland's Independence Day",
+        "repetitive": true,
+        "time": "23:35:00",
+        "reminders": -1
+    },
+    {
+        "name": "Independence Day in USA",
+        "date": "2023-7-04",
+        "description": "Celebrating American Independence",
+        "repetitive": true,
+        "time": "00:00:00",
+        "reminders": -155
+    },
+    {
+        "name": "Easter",
+        "date": "2222-04-07",
+        "description": "Celebration of the resurrection of Jesus",
+        "repetitive": true,
+        "time": "00:00:00",
+        "reminders": -1
+    },
+    {
+        "name": "Christmas",
+        "date": "2222-12-25",
+        "description": "Celebrating the birth of Jesus Christ",
+        "repetitive": true,
+        "time": "00:00:00",
+        "reminders": -1
+    }
+]
