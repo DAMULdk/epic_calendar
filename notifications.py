@@ -16,6 +16,14 @@ from time import sleep
 # ALL
 
 
+name = "name"
+date = "date"
+desc = "description"
+repeat = "repetitive"
+time = "time"
+reminds = "reminders"
+
+
 def find_file(name, path):
     """ Finds a file with given name. """
     result = []
@@ -74,14 +82,22 @@ def full_load():
     return events, found_file
 
 
-def main():
-    name = "name"
-    date = "date"
-    desc = "description"
-    repeat = "repetitive"
-    time = "time"
-    reminds = "reminders"
+def create_new(event: dict): # Makes new event for next year
+    updated = event
+    if event[repeat]:
+        # Converts date and adds 1 year to it
+        new_date = dt.strptime(event[date], "%Y-%m-%d")
+        new_date = dt(year=new_date.year + 1, month=new_date.month, day=new_date.day)
+        new_date = dt.strftime(new_date, "%Y-%m-%d")
 
+        updated[date] = new_date
+        updated[reminds] = 1
+        return updated
+    else:
+        return event
+        
+
+def main():
     while True:
         events, path = full_load() # Loading events
         print("Jeździ")
@@ -118,6 +134,7 @@ def main():
 {event[date]} {event[time]}
                     """
                     event_temp[reminds] = -1
+                    event_temp = create_new(event_temp) # if repetitive is True then creates new event for next year
                     events_temp.append(event_temp)
                     show_message("Epic Calendar", message)
 
@@ -128,7 +145,7 @@ def main():
                     message = f"""{event[reminds] + 1} days till {event[name]}!
 {event[desc]}
 Event final date: {event[date]} {event[time]}
-You have {event[reminds]} reminders left.
+reminders left: {event[reminds]}.
                     """
                     show_message("Epic Calendar", message)
 
