@@ -6,16 +6,6 @@ from datetime import datetime as dt, timedelta
 from typing import List, Dict
 from time import sleep
 
-#Should work
-# To do:
-# main.py > menu > time till
-# fix and test this
-# birthday if possible
-# Comments
-# Readme.md
-# ALL
-
-
 name = "name"
 date = "date"
 desc = "description"
@@ -104,7 +94,7 @@ def main():
 
         for i in range(60):
             """ Checking whether an event occurred, 60 times to avoid loading 
-            data each time, which could be incriminating for the system """
+            data each time, which could be incriminating for the system. """
             now = dt.now()
             events = load(path) # Current events
             events_temp = [] # List that will contain edited events
@@ -123,11 +113,11 @@ def main():
                 print((date_time >= (now - reminds_delta)))
                 print("\n\n\n\n")
 
-                # Makes sure that event has not more reminders than days till this event
+                # Makes sure that event has not more reminders than days until this event
                 while ((date_time - now).days < event[reminds] - 1) and event[reminds] > 0:
                     event_temp[reminds] -= 1
 
-                # Checks if event happened
+                # Checks if the event happened
                 if (date_time <= now) and event[reminds] >= 0:
                     message = f"""{event[name]}!
 {event[desc]}

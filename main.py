@@ -1,10 +1,9 @@
 """
 Zadanie zaliczeniowe z języka Python
 Imię i nazwisko ucznia: Damian Kwasigroch
-Data wykonania zadania: -
+Data wykonania zadania: 06.12.2023
 Treść zadania: Kalendarz z funkcją powiadomień
 Opis funkcjonalności aplikacji: - w README.md
-sk comments - JDP4Nuc26scaUWsIBW3HT3BlbkFJmYzl6t2DOmzYg1cTgADF
 """
 """
 This file contains console ui for calendar management.
@@ -41,7 +40,7 @@ def intro(user_info):
     "By: Damian Kwasigroch\n" + 
     "Version: 0.1\n" + 
     "Created: 21.11.2023\n" + 
-    "Last modified: 30-11-2023\n\n" +
+    "Last modified: 06-12-2023\n\n" +
     "Hello " + name + "\n" )
     print(Fore.LIGHTBLUE_EX + art + Fore.BLUE + intro_info)
 
@@ -57,7 +56,7 @@ def menu(user_info):
 3 - Add alarm (with time)
 4 - Delete event (by index)
 5 - Clear all events
-6 - See time till event (by index)
+6 - See time untill event (by index)
 7 - Clear console
 8 - Change to {'bright' if dark_mode else 'dark'} mode (visible in gui)
 9 - Add/Change user's info
@@ -107,13 +106,12 @@ def options(calendar: cal.Calendar, user_info: tuple): # Big tree of user option
                 print(f"{Fore.GREEN}[-] Events cleared")
             calendar.save_events()
 
-        elif answer == 6: # See till #########
+        elif answer == 6: # See time until event
             index = cal.validator("Event index to show: ", "int")
             time_till = calendar.till_event(index)
             day_time = 86400 * time_till.days
             print(f"""time till {
 calendar.events[index-1].name}:
-    in {time_till.days} ###################
     in days: {time_till.days} days
     in hours: {(day_time + time_till.seconds) / 3600} hours
     in minutes: {(day_time + time_till.seconds) / 60} minutes

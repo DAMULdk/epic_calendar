@@ -2,7 +2,7 @@
 """
 This file contains gui for calendar management.
 The upper part of the code was generated using the QtDesigner tool.
-The lower part containing the logic and the functionality of the interface was written manually.
+The lower part containing the logic and functionality of the interface was written manually.
 """
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -157,7 +157,7 @@ class Ui_MainWindow(object):
         self.info_group.setTitle(_translate("MainWindow", "Day info"))
         self.info_label.setText(_translate("MainWindow", "Selected date:"))
 
-        # Added by Damian ↓
+        # Added manually ↓
 
     def setup(self):
         """ Setups the UI elements and connects signals. """
@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
         ct.windll.shell32.SetCurrentProcessExplicitAppUserModelID('icon') # Showing right icon in task bar
 
         self.calendar = cal.Calendar() # Creating calendar object
-        self.standard_DateTextFormat = self.calendar_widget.dateTextFormat(QtCore.QDate(2000, 1, 1)) # Pobranie domyślnego formatu tekstu
+        self.standard_DateTextFormat = self.calendar_widget.dateTextFormat(QtCore.QDate(2000, 1, 1))
 
         # Listeners
         self.calendar_widget.clicked.connect(lambda: self.set_date(self.calendar_widget.selectedDate()))
@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
     def set_date(self, date:QtCore.QDate):
         """ Sets date into add_date object and writes day description in date info when calendar day clicked. """
         self.add_date.setDate(date) # Sets date in add_date to selected date
-        self.events = [i.date for i in self.calendar.events] # Gets events date
+        self.events = [i.date for i in self.calendar.events] # Gets event date
         self.date = date.toString("yyyy-MM-dd")
         self.info_label2.setText(self.date) # Sets selected date to day info
         if self.date in self.events: # Checks if selected date is in events

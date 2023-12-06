@@ -49,12 +49,12 @@ class Calendar:
             return deleted_event
 
     def clear_events(self):
-        """ Clear all events from the calendar. """
+        """ Clears all events from the calendar. """
         self.events = []
         self.save_events()
 
     def till_event(self, index):
-        """ Shows time till index with given index. """
+        """ Shows time until event with given index. """
         if not 1 <= index <= len(self.events):
             return f"{Fore.RED}[!] Wrong index number"
 
@@ -94,13 +94,13 @@ class Calendar:
                  "reminders": 1},
                 {"name": "Easter",
                  "date": "2222-04-07",
-                 "description": "Celebration of the resurrection of Jesus",
+                 "description": "Happy Easter!",
                  "repetitive": True,
                  "time": "00:00:00",
                  "reminders": 1},
                 {"name": "Christmas",
                  "date": "2222-12-25",
-                 "description": "Celebrating the birth of Jesus Christ",
+                 "description": "Merry Christmas!",
                  "repetitive": True,
                  "time": "00:00:00",
                  "reminders": 1}
@@ -167,7 +167,7 @@ def save(user_info):
         return f"{Fore.RED}[!] File options.txt not found. Restarting the program recommended"
 
     except PermissionError:
-        return f"{Fore.RED}[!] [!] No file permissions"
+        return f"{Fore.RED}[!] No file permission"
 
     except Exception as e:
         return f"{Fore.RED}[!] {e}"
@@ -230,7 +230,7 @@ def is_valid(
         data_type (Literal["text", "int", "float", "date", "time", "confirm", "any"]): Expected data type for validation.
         min_val (Union[float, str, int]): Minimum constraint for the input value. Defaults to float("-inf").
         max_val (Union[float, str, int]): Maximum constraint for the input value. Defaults to float("inf").
-        return_err_code (bool): If True, return error codes instead of boolean result. Defaults to False.
+        return_err_code (bool): If True, returns error codes instead of boolean result. Defaults to False.
         date_format (str): Sets valid format for date. Defaults to "%Y-%m-%d".
         time_format (str): Sets valid format for time. Defaults to "%H:%M:%S".
         
@@ -313,7 +313,7 @@ def is_valid(
             return (True if not return_err_code else 0)
         else:
             return (False if not return_err_code else 2)
-    # Check for any data type by converting to common types (date, time, int, float)
+    # Check for any data type by converting to python data types (date, time, int, float)
     elif data_type == 'any':
         vals = []
         for val in [value, str(min_val), str(max_val)]:
@@ -352,12 +352,12 @@ def validator(
     time_format: str = "%H:%M:%S"
 ) -> Any:
     """
-    Validate user input.
+    Validates user input.
 
     Args:
         text (str): Prompt text for the user input.
         data_type (Literal["text", "int", "float", "date", "time", "confirm"]): Expected data type for input.
-        repeat (bool): If True, allow the user to retry input on error. Defaults to True.
+        repeat (bool): If True, allows the user to retry input on error. Defaults to True.
         min_val (Union[float, str, int]): Minimum constraint for the input value. Defaults to float("-inf").
         max_val (Union[float, str, int]): Maximum constraint for the input value. Defaults to float("inf").
         nothing_err (str): Error message for empty input. Defaults to "Nothing has been entered".
@@ -464,7 +464,7 @@ def adv_dt_validator(
             nothing_err=nothing_err,
             type_err=type_err if type_err else 
             f"{Fore.RED}Invalid date format\nExample of correct date: {dt.strftime(dt.today() + timedelta(days=5), date_format)}",
-            low_err=past_err if past_err else f"{Fore.RED}[!] date you entered has already passed"
+            low_err=past_err if past_err else f"{Fore.RED}[!] the date you entered has already passed"
         )
         return dt.strftime(v_date, date_format) if conv_to_str else v_date
     
@@ -486,7 +486,7 @@ def adv_dt_validator(
             nothing_err=nothing_err,
             type_err=type_err if type_err else
             f"{Fore.RED}Invalid date format\nExample of correct date: {dt.strftime(dt.today() + timedelta(days=5), date_format)}",
-            low_err=past_err if past_err else f"{Fore.RED}[!] date you entered has already passed"
+            low_err=past_err if past_err else f"{Fore.RED}[!] the date you entered has already passed"
         )
 
         if v_date == date.today(): # If the date is set to today, the time must be greater than the current time
@@ -496,7 +496,7 @@ def adv_dt_validator(
                 type_err=f"{Fore.RED}Invalid time format\nExample of correct time: {dt.strftime(dt.today() + timedelta(hours=1), time_format)}",
                 low_err=past_err if past_err else f"{Fore.RED}[!] time you entered has already passed"
             )
-        else: # If the date in't set to today, the time can be any
+        else: # If the date isn't set to today, the time can be anything
             v_time = validator(text.replace("date", "time"), "time", repeat, 
                 nothing_err=nothing_err,
                 type_err=f"{Fore.RED}Invalid time format\nExample of correct time: {dt.strftime(dt.today() + timedelta(hours=1), time_format)}"
